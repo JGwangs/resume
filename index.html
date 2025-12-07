@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Je Gwangseong - HR Professional</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 40px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header-left .subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .header-right a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .header-right p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .header-right .icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 50px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Section */
+        .profile-text {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .experience-item:hover {
+            border-left-color: var(--accent-color);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-company {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .experience-period {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .experience-industry {
+            font-size: 0.8rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        .experience-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .experience-list li {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .experience-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 5px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        /* Projects Section */
+        .project-item {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .project-header {
+            margin-bottom: 10px;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+        }
+
+        .project-period {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .project-status {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .project-status.active {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-list li {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .project-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        /* Education Section */
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .education-degree {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .education-school {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .education-period {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Structured Skills */
+        .skills-structured {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--light-gray);
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .skill-category-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-category .skill-tag {
+            background: white;
+        }
+
+        /* Print Header for pages 2+ */
+        .print-header {
+            display: none;
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            html, body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .page-break-before {
+                page-break-before: always;
+                break-before: page;
+            }
+
+            /* Show print headers */
+            .print-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px 15px 20px;
+                margin-bottom: 15px;
+                margin-left: -30px;
+                margin-right: -10px;
+                background: white;
+                border-bottom: 1px solid #e0e0e0;
+                font-size: 0.85rem;
+                color: #666;
+                position: relative;
+                z-index: 10;
+            }
+
+            .print-header-name {
+                font-weight: 600;
+                color: #2c3e50;
+            }
+
+            .print-header-title {
+                color: #888;
+            }
+
+            .print-header-page {
+                color: #888;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Je Gwangseong</h1>
+                <p class="subtitle">HR Professional | Compensation & Benefits Specialist</p>
+            </div>
+            <div class="header-right">
+                <p>+82-10-4329-5650</p>
+                <p><a href="mailto:JeGwangseong@gmail.com">JeGwangseong@gmail.com</a></p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profile -->
+            <section class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="profile-text">
+                    Results-driven HR professional with 8+ years of experience specializing in Compensation & Benefits,
+                    Talent Acquisition, and Performance Management. Proven track record of developing and implementing
+                    strategic compensation programs, driving data-informed HR decisions, and leveraging technology to
+                    optimize HR operations. Skilled in analyzing market trends to maintain competitive compensation
+                    structures and building automated solutions that enhance organizational efficiency.
+                </p>
+            </section>
+
+            <!-- Experience -->
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <p class="experience-title">Compensation & Benefits Administrator</p>
+                            <p class="experience-company">SK Inc. AX Division</p>
+                            <p class="experience-industry">System Integration</p>
+                        </div>
+                        <p class="experience-period">Sep 2022 - Present</p>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Design and execute performance-based incentive bonus programs, identifying top performers through evaluation results and administering additional rewards to drive employee motivation and retention</li>
+                        <li>Develop and implement ad-hoc bonus programs based on role responsibilities and project contributions, ensuring fair and timely recognition of exceptional performance</li>
+                        <li>Lead annual salary increase strategy by conducting comprehensive market analysis, benchmarking against industry competitors, and determining competitive compensation levels to attract and retain talent</li>
+                        <li>Spearhead the introduction of Defined Contribution (DC) retirement pension plan, including policy drafting, employee communication, consensus building, and ongoing administration</li>
+                        <li>Establish HR policies for newly formed subsidiary, encompassing job level framework, performance appraisal processes, promotion criteria, and compensation structures</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <p class="experience-title">Employee Evaluation Coordinator</p>
+                            <p class="experience-company">Ground X Corp.</p>
+                            <p class="experience-industry">Blockchain Technology</p>
+                        </div>
+                        <p class="experience-period">Oct 2021 - Mar 2022</p>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Architected and deployed comprehensive performance evaluation system, designing appraisal criteria and assessment frameworks aligned with organizational objectives</li>
+                        </ul>
+                        <div class="print-header page-break-before">
+                            <span class="print-header-name">Je Gwangseong</span>
+                            <span class="print-header-title">HR Professional</span>
+                            <span class="print-header-page">Page 2</span>
+                        </div>
+                        <ul class="experience-list">
+                        <li>Orchestrated 360-degree feedback processes, synthesizing input from peers, managers, and direct reports to provide holistic performance insights</li>
+                        <li>Transformed evaluation data into actionable insights through advanced visualization techniques, enabling data-driven talent management decisions</li>
+                        <li>Automated end-to-end evaluation workflow, including performance sheet generation, review distribution, and results compilation, significantly reducing administrative overhead</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <p class="experience-title">Talent Acquisition Specialist</p>
+                            <p class="experience-company">Hyundai Motor Company</p>
+                            <p class="experience-industry">Automotive Manufacturing</p>
+                        </div>
+                        <p class="experience-period">Feb 2021 - Oct 2021</p>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Managed full-cycle campus recruitment program, successfully hiring 500+ graduates annually from a candidate pool of 5,000+ applicants</li>
+                        <li>Developed and executed multi-channel employer branding strategy across social media platforms, expanding reach to diverse talent pools</li>
+                        <li>Cultivated media relationships to secure press coverage, enhancing employer brand visibility among target candidate demographics</li>
+                        <li>Pioneered virtual recruitment initiatives by hosting online job fairs on metaverse platforms, delivering innovative candidate engagement experiences</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <p class="experience-title">Compensation & Benefits Administrator</p>
+                            <p class="experience-company">Hyundai Motor Company</p>
+                            <p class="experience-industry">Automotive Manufacturing</p>
+                        </div>
+                        <p class="experience-period">Jan 2017 - Jan 2021</p>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Administered payroll operations for 15,000+ employees at R&D Division utilizing SAP ERP, ensuring accuracy and regulatory compliance</li>
+                        <li>Produced quarterly and annual HR analytics reports covering compensation trends, turnover metrics, and recruitment KPIs for executive decision-making</li>
+                        <li>Implemented work hour tracking system to support flexible work policy adoption, improving workforce productivity and compliance monitoring</li>
+                        <li>Monitored and analyzed Korea Labor Law amendments, ensuring organizational policies maintained full legal compliance</li>
+                        <li>Developed Python automation scripts for routine HR tasks including email drafting and report generation, reducing manual workload by 40%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="section page-break-before">
+                <div class="print-header">
+                    <span class="print-header-name">Je Gwangseong</span>
+                    <span class="print-header-title">HR Professional</span>
+                    <span class="print-header-page">Page 3</span>
+                </div>
+                <h2 class="section-title">Key Projects</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <p class="project-title">Job-Based Incentive Program Design & Implementation</p>
+                        <div class="project-meta">
+                            <span class="project-period">Initial: Jan 2023 - Jun 2023</span>
+                            <span class="project-status active">Actively Maintained</span>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li>Designed and launched a job-based incentive program targeting critical yet hard-to-fill roles essential for business growth and talent development</li>
+                        <li>Collaborated with executives to identify high-priority positions based on strategic importance and role complexity</li>
+                        <li>Established transparent selection criteria for bonus recipients using project revenue contribution and task difficulty as key metrics</li>
+                        <li>Managed end-to-end program execution including criteria finalization, recipient selection, cross-functional coordination, and bonus disbursement</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <p class="project-title">Real-Time HR Dashboard Development</p>
+                        <div class="project-meta">
+                            <span class="project-period">Initial: Jun 2020 - Jan 2021</span>
+                            <span class="project-status active">Actively Maintained</span>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li>Designed and built a real-time HR analytics dashboard using Python and Flask, providing managers with instant access to critical HR metrics</li>
+                        <li>Integrated multiple data sources to display salary analytics, overtime tracking, attendance records, and leave management in a unified interface</li>
+                        <li>Reduced HR reporting cycle from quarterly to real-time, dramatically improving response time to business inquiries</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <p class="project-title">HR Process Automation with RPA</p>
+                        <div class="project-meta">
+                            <span class="project-period">Initial: Jan 2020 - Dec 2020</span>
+                            <span class="project-status active">Actively Maintained</span>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li>Engineered Robotic Process Automation solutions to streamline repetitive HR operations and improve process efficiency</li>
+                        <li>Automated data extraction, report updates, and stakeholder communications through intelligent workflow design</li>
+                        <li>Achieved 300+ hours of annual time savings, enabling HR team to focus on strategic initiatives</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section page-break-before">
+                <div class="print-header">
+                    <span class="print-header-name">Je Gwangseong</span>
+                    <span class="print-header-title">HR Professional</span>
+                    <span class="print-header-page">Page 4</span>
+                </div>
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div>
+                        <p class="education-degree">Bachelor of Arts in Business Administration & Global Studies</p>
+                        <p class="education-school">Pusan National University</p>
+                    </div>
+                    <p class="education-period">Mar 2010 - Feb 2017</p>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="section">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="skills-structured">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">HR Expertise</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Compensation Strategy</span>
+                            <span class="skill-tag">Benefits Administration</span>
+                            <span class="skill-tag">Performance Management</span>
+                            <span class="skill-tag">Talent Acquisition</span>
+                            <span class="skill-tag">Korea Labor Law</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Technical Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SAP ERP</span>
+                            <span class="skill-tag">RPA Development</span>
+                            <span class="skill-tag">HR Analytics</span>
+                            <span class="skill-tag">Data Visualization</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Language</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Business English</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
